@@ -1,20 +1,19 @@
 package javaLabs;
 
 public class Farm {
-	
-	public String location  = "NoData";
+
+	public String location = "NoData";
 	public int animalNumber;
 	public int fanPower;
-	
+
 	public static int farmAmount = 0;
-	
+
 	protected int harvest;
 	protected int alarmCode = 1111;
-	
+
 	private int income;
 	private String name = "NoData";
-	
-	
+
 	public Farm(String name, String location, int income, int animalNumber, int fanPower) {
 		this.name = name;
 		this.location = location;
@@ -23,17 +22,15 @@ public class Farm {
 		this.fanPower = fanPower;
 		farmAmount++;
 	}
-	
+
 	public Farm(String name, String location, int income, int animalNumber) {
 		this(name, location, income, animalNumber, 0);
 	}
-	
+
 	public Farm() {
 		this("NoData", "NoData", 0, 0);
 	}
-	
-	
-	
+
 	public void resetValues(String name, String location, int income, int animalNumber, int fanPower, int alarmCode, int harvest) {
 		this.name = name;
 		this.location = location;
@@ -43,7 +40,7 @@ public class Farm {
 		this.alarmCode = alarmCode;
 		this.harvest = harvest;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Farm name: " + name + 
@@ -54,18 +51,15 @@ public class Farm {
 				"\nHarvest: " + harvest + 
 				"\nAlarm code: " + alarmCode + "\n";
 	}
-	
-	
+
 	public static void printStaticFarmAmount() {
 		System.out.println("We have " + farmAmount + " farms");
 	}
-	
+
 	public void printFarmAmount() {
 		System.out.println("We have " + farmAmount + " farms");
 	}
-	
-	
-	
+
 	public int getHarvest() {
 		return harvest;
 	}
