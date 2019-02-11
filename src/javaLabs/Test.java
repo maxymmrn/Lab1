@@ -13,9 +13,11 @@ public class Test {
 		
 		Farm.printStaticFarmAmount();
 		
-		ukrFarm.toString();
-		euFarm.toString();
-		usaFarm.toString();
+		System.out.println();
+		
+		System.out.println(ukrFarm);
+		System.out.println(euFarm);
+		System.out.println(usaFarm);
 	}
 
 }

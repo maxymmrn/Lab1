@@ -1,40 +1,44 @@
 package javaLabs;
 
 public class Farm {
-	public String location;
-	public int animalAmount;
-	public int fanPower;
 	
-	private int income;
-	private String name;
+	public String location  = "NoData";
+	public int animalNumber;
+	public int fanPower;
 	
 	public static int farmAmount = 0;
 	
 	protected int harvest;
-	protected int alarmCode;
+	protected int alarmCode = 1111;
+	
+	private int income;
+	private String name = "NoData";
+	
+	
+	public Farm(String name, String location, int income, int animalNumber, int fanPower) {
+		this.name = name;
+		this.location = location;
+		this.income = income;
+		this.animalNumber = animalNumber;
+		this.fanPower = fanPower;
+		farmAmount++;
+	}
+	
+	public Farm(String name, String location, int income, int animalNumber) {
+		this(name, location, income, animalNumber, 0);
+	}
 	
 	public Farm() {
-		farmAmount++;
+		this("NoData", "NoData", 0, 0);
 	}
 	
-	public Farm(String name, String location, int income, int animalAmount) {
+	
+	
+	public void resetValues(String name, String location, int income, int animalNumber, int fanPower, int alarmCode, int harvest) {
 		this.name = name;
 		this.location = location;
 		this.income = income;
-		this.animalAmount = animalAmount;
-		farmAmount++;
-	}
-	
-	public Farm(String name, String location, int income, int animalAmount, int fanPower) {
-		this(name, location, income, animalAmount);
-		this.fanPower = fanPower;
-	}
-	
-	public void resetValues(String name, String location, int income, int animalAmount, int fanPower, int alarmCode, int harvest) {
-		this.name = name;
-		this.location = location;
-		this.income = income;
-		this.animalAmount = animalAmount;
+		this.animalNumber = animalNumber;
 		this.fanPower = fanPower;
 		this.alarmCode = alarmCode;
 		this.harvest = harvest;
@@ -42,15 +46,13 @@ public class Farm {
 	
 	@Override
 	public String toString() {
-		System.out.println("Info:");
-		System.out.println("Farm: " + name);
-		System.out.println("Location: " + location);
-		System.out.println("Amount of animals: " + animalAmount);
-		System.out.println("Fan's power: " + fanPower + " W");
-		System.out.println("Income per year: " + income + "$");
-		System.out.println("Harvest in this year: " + harvest + " kg");
-		System.out.println("");
-		return super.toString();
+		return "Farm name: " + name + 
+				"\nNumber of animals: " + animalNumber + 
+				"\nFan power: " + fanPower +
+				"\nIncome: " + income + 
+				"\nLocation:" + location + 
+				"\nHarvest: " + harvest + 
+				"\nAlarm code: " + alarmCode + "\n";
 	}
 	
 	
@@ -62,6 +64,24 @@ public class Farm {
 		System.out.println("We have " + farmAmount + " farms");
 	}
 	
+	
+	
+	public int getHarvest() {
+		return harvest;
+	}
+
+	public void setHarvest(int harvest) {
+		this.harvest = harvest;
+	}
+
+	public int getAlarmCode() {
+		return alarmCode;
+	}
+
+	public void setAlarmCode(int alarmCode) {
+		this.alarmCode = alarmCode;
+	}
+
 	public int getIncome() {
 		return income;
 	}
@@ -69,8 +89,6 @@ public class Farm {
 	public void setIncome(int income) {
 		this.income = income;
 	}
-	
-	
 	
 	public String getName() {
 		return name;
